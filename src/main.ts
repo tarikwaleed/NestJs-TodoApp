@@ -1,8 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { morganMiddleware } from './middlewares/morgan.middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.use(morganMiddleware);
   await app.listen(3000);
 }
 bootstrap();
