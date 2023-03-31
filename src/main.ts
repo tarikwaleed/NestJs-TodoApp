@@ -5,6 +5,8 @@ import { morganMiddleware } from './middlewares/morgan.middleware';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(morganMiddleware);
-  await app.listen(3000);
+  await app.listen(3000, () => {
+    console.log('Listening on port 3000');
+  });
 }
 bootstrap();
